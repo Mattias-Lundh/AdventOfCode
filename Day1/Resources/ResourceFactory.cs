@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Day1.Resources
@@ -18,7 +19,10 @@ namespace Day1.Resources
             var resource = new Resource
             {
                 ModuleWeights = _resourceLoader.GetModuleWeights()
+                    .Select(row => int.Parse(row))
+                    .ToArray()
             };
+
 
             return resource;
         }

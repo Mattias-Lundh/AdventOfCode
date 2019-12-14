@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Autofac;
 using Day1.App;
+using Day1.Calculator;
 using Day1.Resources;
 
 namespace Day1.Dependancy_Injection
@@ -23,6 +24,9 @@ namespace Day1.Dependancy_Injection
                 .SingleInstance();
 
             builder.RegisterType<PuzzleApp>()
+                .SingleInstance();
+
+            builder.RegisterType<FuelCalculator>()
                 .SingleInstance();
 
             return builder.Build();

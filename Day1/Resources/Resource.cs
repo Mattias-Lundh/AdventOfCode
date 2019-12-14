@@ -6,6 +6,6 @@ namespace Day1.Resources
 {
     public class Resource
     {
-        public string[] ModuleWeights;
+        public int[] ModuleWeights;
     }
 }
