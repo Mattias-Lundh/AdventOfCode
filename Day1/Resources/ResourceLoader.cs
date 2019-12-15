@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 
 namespace Day1.Resources
 {
@@ -10,12 +11,24 @@ namespace Day1.Resources
             _moduleWeightsFilePath = moduleWeightsFilePath;
         }
 
+        public ModuleWeights CreateModuleWeights()
+        {
+            var resource = new ModuleWeights
+            {
+                Values = LoadModuleWeightsFromFile()
+                    .Select(row => int.Parse(row))
+                    .ToArray()
+            };
+
+            return resource;
+        }
+
         /// <summary>
         /// loads weight data from embedded txt file.
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public string[] GetModuleWeights()
+        private string[] LoadModuleWeightsFromFile()
         {
             return File.ReadAllLines(_moduleWeightsFilePath);
         }

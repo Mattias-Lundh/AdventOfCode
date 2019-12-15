@@ -6,21 +6,19 @@ namespace Day1.App
 {
     public class PuzzleApp
     {
-        private readonly ResourceFactory _resourceFactory;
+        private readonly ResourceLoader _resourceLoader;
         private readonly FuelCalculator _fuelCalculator;
         public PuzzleApp(
-            ResourceFactory resourceFactory,
+            ResourceLoader resourceFactory,
             FuelCalculator fuelCalculator)
         {
-            _resourceFactory = resourceFactory;
+            _resourceLoader = resourceFactory;
             _fuelCalculator = fuelCalculator;
         }
 
         public void RunApp()
         {
-            var resource = _resourceFactory.GenerateResource();
-
-            Console.WriteLine("test: " + _fuelCalculator.CalculateFuelRequirement(new[]{ 1969 }));
+            var resource = _resourceLoader.CreateModuleWeights();
 
             Console.WriteLine(_fuelCalculator.CalculateFuelRequirement(resource.Values));
             Console.ReadLine();

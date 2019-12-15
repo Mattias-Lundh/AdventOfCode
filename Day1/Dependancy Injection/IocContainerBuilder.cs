@@ -12,9 +12,6 @@ namespace Day1.Dependancy_Injection
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<ResourceFactory>()
-                .SingleInstance();
-
             builder.RegisterType<ResourceLoader>()
                 .WithParameter(
                     "moduleWeightsFilePath", 
