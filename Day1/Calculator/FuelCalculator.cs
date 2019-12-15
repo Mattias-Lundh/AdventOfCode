@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Day1.Calculator
 {
@@ -9,18 +7,42 @@ namespace Day1.Calculator
     {
         public int CalculateFuelRequirement(int[] moduleMass)
         {
-            return moduleMass.Sum(CalculateFuelRequirement);
+            return moduleMass.Sum(Calculate);
         }
 
-        private int CalculateFuelRequirement(int moduleMass)
+        private int Calculate(int moduleMass)
         {
-            var result = 0;
+            var fuelCoveringMassAndFuel = 0;
+            var fuelCoveringMass = 0;
 
-            result = moduleMass / 3;
-            result = (int)Math.Round((double)result, MidpointRounding.ToZero);
-            result -= 2;
+            fuelCoveringMass = DivideAndRoundDown(moduleMass);
+            fuelCoveringMass -= 2;
 
-            return result;
+            fuelCoveringMassAndFuel += fuelCoveringMass + CalculateForFuel(fuelCoveringMass);
+
+            return fuelCoveringMassAndFuel;
+        }
+
+        private int CalculateForFuel(int fuel)
+        {
+            if (DivideAndRoundDown(fuel) <= 0)
+            {
+                return fuel + 2;
+            }
+
+            var newFuelAmount = DivideAndRoundDown(fuel) - 2;
+
+            return newFuelAmount + CalculateForFuel(newFuelAmount);
+        }
+
+        private int RoundDown(int number)
+        {
+            return (int)Math.Round((double)number, MidpointRounding.ToZero);
+        }
+
+        private int DivideAndRoundDown(int mass)
+        {
+            return RoundDown(mass / 3);
         }
     }
 }

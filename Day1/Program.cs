@@ -1,5 +1,4 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using Day1.Dependancy_Injection;
 using Day1.App;
 
