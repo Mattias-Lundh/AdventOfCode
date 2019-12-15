@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
+using Day1.Resources.Module;
 
 namespace Day1.Resources
 {
@@ -15,7 +16,7 @@ namespace Day1.Resources
         {
             var resource = new ModuleWeights
             {
-                Values = LoadModuleWeightsFromFile()
+                Values = LoadPuzzleInputFromFile()
                     .Select(row => int.Parse(row))
                     .ToArray()
             };
@@ -28,7 +29,7 @@ namespace Day1.Resources
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        private string[] LoadModuleWeightsFromFile()
+        private string[] LoadPuzzleInputFromFile()
         {
             return File.ReadAllLines(_moduleWeightsFilePath);
         }

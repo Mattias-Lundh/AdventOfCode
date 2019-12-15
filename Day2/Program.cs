@@ -1,15 +1,16 @@
-﻿using Autofac;
-using Day1.Dependancy_Injection;
-using Day1.App;
+﻿using System;
+using Autofac;
+using Day2.App;
+using Day2.Dependancy_Injection;
 
-namespace Day1
+namespace Day2
 {
     class Program
     {
         static void Main(string[] args)
         {
             var container = IocContainerBuilder.Build();
-            
+
             container.Resolve<PuzzleApp>()
                 .RunApp();
         }

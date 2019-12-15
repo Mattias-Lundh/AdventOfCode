@@ -1,4 +1,4 @@
-﻿namespace Day1.Resources
+﻿namespace Day1.Resources.Module
 {
     public class ModuleWeights
     {
