@@ -11,11 +11,11 @@ namespace Day1.Resources
             _resourceLoader = resourceLoader;
         }
 
-        public Resource GenerateResource()
+        public ModuleWeights GenerateResource()
         {
-            var resource = new Resource
+            var resource = new ModuleWeights
             {
-                ModuleWeights = _resourceLoader.GetModuleWeights()
+                Values = _resourceLoader.GetModuleWeights()
                     .Select(row => int.Parse(row))
                     .ToArray()
             };

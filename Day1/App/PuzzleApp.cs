@@ -22,7 +22,7 @@ namespace Day1.App
 
             Console.WriteLine("test: " + _fuelCalculator.CalculateFuelRequirement(new[]{ 1969 }));
 
-            Console.WriteLine(_fuelCalculator.CalculateFuelRequirement(resource.ModuleWeights));
+            Console.WriteLine(_fuelCalculator.CalculateFuelRequirement(resource.Values));
             Console.ReadLine();
         }
     }
