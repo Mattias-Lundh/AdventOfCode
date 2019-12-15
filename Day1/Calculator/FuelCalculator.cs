@@ -25,12 +25,17 @@ namespace Day1.Calculator
 
         private int CalculateForFuel(int fuel)
         {
-            if (DivideAndRoundDown(fuel) <= 0)
+            if (DivideAndRoundDown(fuel) == 0)
             {
-                return fuel + 2;
+                return 0;
             }
 
             var newFuelAmount = DivideAndRoundDown(fuel) - 2;
+
+            if (newFuelAmount < 0)
+            {
+                newFuelAmount = 0;
+            }
 
             return newFuelAmount + CalculateForFuel(newFuelAmount);
         }

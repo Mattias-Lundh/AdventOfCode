@@ -20,6 +20,8 @@ namespace Day1.App
         {
             var resource = _resourceFactory.GenerateResource();
 
+            Console.WriteLine("test: " + _fuelCalculator.CalculateFuelRequirement(new[]{ 1969 }));
+
             Console.WriteLine(_fuelCalculator.CalculateFuelRequirement(resource.ModuleWeights));
             Console.ReadLine();
         }
